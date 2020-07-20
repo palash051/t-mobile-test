@@ -1,36 +1,28 @@
-# exercise
-Headspace Android Coding Exercise
+API
+A sample REST API that returns a list of pre-defined result:
+“ https://private-8ce77c-tmobiletest.apiary-mock.com/test/home”
+The API returns a list of view models to be rendered as a list-view.
 
-**Android Developer Code Challenge**
+Requirements
+These requirements are rather high level and vague. If there are details omitted, it is because we will be happy with any of wide variety of solutions/creativeness. Don’t worry about finding “the” solution.
 
-The goal of this problem is to create an Android app that displays a list of photos from the picsum API ([https://picsum.photos/](https://picsum.photos/))
+1. Query the rest API for receiving the home page response.
+2. Display the data by constructing a list view.
+3. The view(s) should dynamically set the height based on the content.
+4. All texts in the view(s) should be displayed (no truncation)
+5. The view(s) which have image should set the height dynamically based on image resolution in the API response.
+Ex: Images in the API response can be a rectangle (higher width/ higher height) or square.
+6. All image + text models should be rendered with UI hierarchy as below:
+• Image will take the entire RecyclerView
+• Texts will be displayed on top of the ImageView beginning from bottom of the RecyclerView
 
-The endpoint you need to call is [https://picsum.photos/v2/list](https://picsum.photos/v2/list)
+Example of image+text
 
-It **should** meet the following requirements:
+What is Important
+• Proper functionality, requirements met.
+• Well-constructed, easy-to-follow, commented code (especially comment hacks or workarounds made in the interest of expediency (i.e. // given more time I would prefer to wrap this in a blah blah blah pattern blah blah)).
+• Proper separation of concerns, best-practice coding patterns
 
-- It should display the image, author, and dimensions of the photos
-- These can be laid out in a vertical orientation or a grid
-- It should handle the following states :
-    - Empty State (no data)
-    - Error State (api call failed)
-    - Loading State (api call is taking place)
-    - Content State (there is data to display)
-- It should be functional while offline
-- When loading a page of photos it should check to see if that page exists in the database, if it does then display those products otherwise make a call to the endpoint
-
-**Skeleton App**
-
-- Feel free to use the app skeleton provided here, to use your own or to start from scratch.
-- The skeleton provided is setup with:
-    - Common libraries: RxJava, Room, OkHttp, Retrofit, Gson, Glide, RecyclerView, ConstraintLayout
-    - It uses the MVVM pattern
-    - It provides some defaults providers for Network and Local DB calls
-    - Skeleton classes for a feature: FeatureActivity, FeatureViewModel and FeatureTableDao
-
-**Submission Instructions**
-
-- Create a repo on your personal GitHub and send us the link.
-- Avoid putting everything in a single commit.
-- Track the time you took to complete the project.
-- Add comments where appropriate
+Bonus Points!
+• Unit Tests!
+• Handle offline mode (when network is not available, if data from previous open instance of app is available use that to render the page)
